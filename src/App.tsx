@@ -18,13 +18,25 @@ export default function App() {
   ])
 
   async function submitQuestion(e: React.FormEvent) {
-    e.preventDefault()
-    if (!title.trim() || !body.trim()) return
-    setSubmitting(true)
-    setThread(t => [...t, { role: 'student', text: `【提問】${title}\n${body}` }])
-    await new Promise(r => setTimeout(r, 600))
-    setThread(t => [...t, { role: 'system', text: '（系統）示範解析：先列出「已知條件」與「目標」，再用排除法過濾不符合的選項，剩下者比對到站時間與轉乘次數。' }])
-    setTitle(''); setBody(''); setSubmitting(false)
+  e.preventDefault()
+  if (!title.trim() || !body.trim()) return
+  setSubmitting(true)
+
+  // 先加學生提問
+  setThread(t => [...t, { role: 'student', text: `【提問】${title}\n${body}` }])
+
+  // 模擬延遲
+  await new Promise(r => setTimeout(r, 600))
+
+  // 再加系統回覆
+  setThread(t => [
+    ...t,
+    { role: 'system', text: '（系統）示範解析：先列出「已知條件」與「目標」，再用排除法過濾不符合的選項，剩下者比對到站時間與轉乘次數。' }
+  ])
+
+  setTitle('')
+  setBody('')
+  setSubmitting(false)
   }
 
   return (
