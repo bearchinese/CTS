@@ -1,0 +1,17 @@
+:root { --bg:#f8fafc; --text:#0f172a; --muted:#475569; --border:#e2e8f0; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family: system-ui, 'Noto Sans TC', Arial; }
+.wrap { min-height: 100vh; display:flex; flex-direction:column; }
+.nav { position: sticky; top:0; background: #fff; border-bottom:1px solid var(--border); padding: 10px 0; }
+.brand { max-width: 960px; margin:0 auto; padding: 0 16px; font-weight: 600; }
+.container { max-width: 960px; margin: 0 auto; padding: 16px; width: 100%; }
+.card { background:#fff; border:1px solid var(--border); border-radius: 12px; padding: 16px; }
+.form { display:grid; gap: 8px; margin-top: 4px; }
+.input, .textarea { width:100%; border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px; }
+.textarea { min-height: 120px; }
+.btn { width: fit-content; border:1px solid var(--border); background:#111827; color:#fff; padding:10px 14px; border-radius:10px; }
+.chat { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.bubble { max-width:85%; padding:10px 12px; border-radius:14px; border:1px solid var(--border); background:#fff; white-space:pre-wrap; }
+.bubble.teacher { background:#eef2ff; margin-left:auto; }
+.bubble.system { background:#f1f5f9; }
+.footer { margin-top: auto; padding: 16px; color: #64748b; font-size: 14px; text-align:center; border-top:1px solid var(--border); }
